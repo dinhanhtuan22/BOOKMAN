@@ -1,0 +1,7 @@
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Release\BookMan.ConsoleApp.exe.config
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Release\BookMan.ConsoleApp.exe
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Release\BookMan.ConsoleApp.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Release\Newtonsoft.Json.dll
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Release\Newtonsoft.Json.xml
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\obj\Release\BookMan.ConsoleApp.exe
+C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\obj\Release\BookMan.ConsoleApp.pdb
