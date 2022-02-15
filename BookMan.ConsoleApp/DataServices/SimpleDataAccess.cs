@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace BookMan.ConsoleApp.DataServices
 {
     using Models;
+    /// <summary>
+    /// Tạo data mẫu để test
+    /// </summary>
     public class SimpleDataAccess
     {
         public List<Book> Books { get; set; }

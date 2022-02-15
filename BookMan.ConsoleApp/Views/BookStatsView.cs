@@ -9,20 +9,27 @@ namespace BookMan.ConsoleApp.Views
 {
     using Framework;
     using Models;
+    /// <summary>
+    /// In danh sách theo nhóm
+    /// </summary>
     internal class BookStatsView : ViewBase<IEnumerable<IGrouping<string, Book>>>
     {
         public BookStatsView(IEnumerable<IGrouping<string, Book>> model) : base(model)
         {
+            
         }
+        /// <summary>
+        /// In danh sách theo nhóm ra màn hình
+        /// </summary>
         public override void Render()
         {
             foreach (var groupBook in Model)
             {
                 ViewHelp.WriteLine($"# {groupBook.Key}", ConsoleColor.Magenta);
-                foreach (var b in groupBook)
+                foreach (var book in groupBook)
                 {
-                    ViewHelp.Write($"[{b.Id}]", ConsoleColor.Yellow);
-                    ViewHelp.WriteLine(b.Title, b.Reading ? ConsoleColor.Cyan : ConsoleColor.White);
+                    ViewHelp.Write($"[{book.Id}]", ConsoleColor.Yellow);
+                    ViewHelp.WriteLine(book.Title, book.Reading ? ConsoleColor.Cyan : ConsoleColor.White);
                 }
 
             }

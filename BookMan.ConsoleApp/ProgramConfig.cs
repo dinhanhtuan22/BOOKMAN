@@ -7,6 +7,9 @@
 
     internal partial class Program
     {
+        /// <summary>
+        /// Nhận và xử lý các router
+        /// </summary>
         private static void ConfigRouter()
         {
             //IDataAccess context = new BinaryDataAccess();
@@ -20,6 +23,7 @@
 
             r.Register("about", About);
             r.Register("help", Help);
+            #region route CRUD
             r.Register(route: "create",
                 action: p => controller.Create(),
                 help: "[create]\r\nnhập sách mới");
@@ -38,6 +42,8 @@
             r.Register(route: "do delete",
                 action: p => controller.Delete(p["id"].ToInt(), true),
                 help: "this route should be used only in code");
+            #endregion
+            #region route hiển thị 1 cuốn sách hoặc tất cả
             r.Register(route: "single",
                 action: p => controller.Single(p["id"].ToInt()),
                 help: "[single ? id = <value>]\r\nhiển thị một cuốn sách theo id");
@@ -50,15 +56,11 @@
             r.Register(route: "list file",
                 action: p => controller.List(p["path"]),
                 help: "[list file ? path = <value>]\r\nhiển thị tất cả sách");
+            #endregion
             r.Register(route: "filter",
                 action: p => controller.Filter(p["key"]),
                 help: "[filter ? key = <value>]\r\nTìm sách theo từ khóa");
-            r.Register(route: "add shell",
-                action: p => shell.Shell(p["path"], p["ext"]),
-                help: "[add shell ? path = <value>");
-            r.Register(route: "read",
-                action: p => shell.Read(p["id"].ToInt()),
-                help: "[read ? id = <value>]");
+            #region route đánh dấu, hiện thị các cuốn sách đã đọc
             r.Register(route: "mark",
                 action: p => controller.Mark(p["id"].ToInt()),
                 help: "[mark ? id = <value>]");
@@ -68,7 +70,14 @@
             r.Register(route: "show marks",
                 action: p => controller.ShowMarks(),
                 help: "[show marks]");
-            r.Register(route: "clear",
+            #endregion
+            #region route thao tác với giá sách (shell)
+            r.Register(route: "add shell",
+                action: p => shell.Shell(p["path"], p["ext"]),
+                help: "[add shell ? path = <value>"); 
+            r.Register(route: "read",
+               action: p => shell.Read(p["id"].ToInt()),
+               help: "[read ? id = <value>]"); r.Register(route: "clear",
                 action: p => shell.Clear(),
                 help: "[clear]\r\nUse with care");
             r.Register(route: "do clear",
@@ -77,9 +86,11 @@
             r.Register("save shell",
                 p => shell.Save(),
                 "[save shell]");
+            #endregion
             r.Register(route: "show stats",
                 action: p => controller.Stats(),
                 help: "[show stats]");
+            #region route thay đổi thông tin cấu hình
             r.Register(route: "config prompt text",
                 action: p => config.ConfigPromptText(p["text"]),
                 help: "[config prompt text ? text = <value>");
@@ -91,9 +102,15 @@
                 help: "[current data access");
             r.Register(route: "config data access",
                 action: p => config.ConfigDataAccess(p["da"], p["file"]),
-                help: "[config data access ? da = <value: json, binary,xml> & file = <value>");            
+                help: "[config data access ? da = <value: json, binary,xml> & file = <value>");
+            #endregion
         }
         #region helper
+        /// <summary>
+        /// Convert object của Parameter sang object
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static Book toBook(Parameter p)
         {
             var b = new Book();

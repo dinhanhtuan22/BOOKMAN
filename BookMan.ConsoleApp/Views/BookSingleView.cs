@@ -13,6 +13,10 @@ namespace BookMan.ConsoleApp.Views
     /// </summary>
     internal class BookSingleView : ViewBase<Book>
     {
+        /// <summary>
+        /// Đây là hàm tạo, sẽ được gọi đầu tiên khi tạo object
+        /// </summary>
+        /// <param name="model">Cuốn sách cụ thể sẽ được hiển thị</param>
         public BookSingleView(Book model):base(model)
         { }
 
@@ -27,7 +31,6 @@ namespace BookMan.ConsoleApp.Views
                 return; //kết thúc phương thức Render
             }
             ViewHelp.WriteLine("Book detail information", ConsoleColor.Green);
-                        
 
             Console.WriteLine($"Authors:     {Model.Authors}");
             Console.WriteLine($"Title:       {Model.Title}");
@@ -42,7 +45,5 @@ namespace BookMan.ConsoleApp.Views
             Console.WriteLine($"File:        {Model.File}");
             Console.WriteLine($"File Name:   {Model.FileName}");
         }        
-
-        
     }
 }

@@ -10,6 +10,7 @@ namespace BookMan.ConsoleApp.Controllers
     using Framework;
     using Models;
     using Views;
+
     /// <summary>
     /// class điều khiển, giúp ghép nối dữ liệu với giao diện
     /// </summary>
@@ -28,17 +29,6 @@ namespace BookMan.ConsoleApp.Controllers
         {
             //lấy dữ liệu qua Repository
             var model = Repository.Select(id);
-            /*Code chưa sử dụng lớp ControllerBase
-            //Khởi tạo view
-            BookSingleView view = new BookSingleView(model);
-            //Gọi phương thức Render để thực sự hiện thị ra màn hình
-            if(!string.IsNullOrEmpty(path))
-            {
-                view.RenderToFile(path);
-                return;
-            }
-            view.Render();
-            */
             Render(new BookSingleView(model), path);
         }
 
@@ -47,8 +37,6 @@ namespace BookMan.ConsoleApp.Controllers
         /// </summary>
         public void Create(Book book = null)
         {
-            //BookCreateView create = new BookCreateView();
-            //create.Render();
             if (book == null)
             {
                 Render(new BookCreateView());
@@ -63,12 +51,6 @@ namespace BookMan.ConsoleApp.Controllers
         /// /// <param name="id">mã định danh của cuốn sách</param>
         public void Update(int id, Book book = null)
         {
-            //// lấy dữ liệu qua repository
-            //var model = Repository.Select(id);
-            ////var view = new BookUpdateView(model);
-            ////view.Render();
-            //Render(new BookUpdateView(model));
-
             if (book == null)
             {
                 var model = Repository.Select(id);
@@ -79,21 +61,22 @@ namespace BookMan.ConsoleApp.Controllers
             Repository.Update(id, book);
             Success("Book updated");
         }
+
+        /// <summary>
+        /// Ghép nối dữ liệu 1 danh sách cuốn sách với giao diện hiển thị 1 danh sách cuốn sách 
+        /// </summary>
         public void List(string path = "")
         {
             //lấy dữ liệu qua repository
             var model = Repository.Select();
-            ////Khởi tạo view
-            //BookListView view = new BookListView(model);
-            //if(!string.IsNullOrEmpty(path))
-            //{
-            //    view.RenderToFile(path);
-            //    return;
-            //}
-            //view.Render();
             Render(new BookListView(model), path);
         }
 
+        /// <summary>
+        /// Chức năng xóa dữ liệu 1 cuốn sách
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="process">mã định danh của cuốn sách</param>
         public void Delete(int id, bool process = false)
         {
             if (process == false)
@@ -108,6 +91,10 @@ namespace BookMan.ConsoleApp.Controllers
             }
         }
 
+        /// <summary>
+        /// Chức năng lọc (tìm kiếm)
+        /// </summary>
+        /// <param name="key">Từ khóa tìm kiếm</param>
         public void Filter(string key)
         {
             var model = Repository.Select(key);
@@ -121,10 +108,10 @@ namespace BookMan.ConsoleApp.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <param name="read"></param>
-        public void Mark(int id, bool read =true)
+        public void Mark(int id, bool read = true)
         {
             var book = Repository.Select(id);
-            if(book == null)
+            if (book == null)
             {
                 Error("Book not found!");
                 return;
@@ -132,12 +119,19 @@ namespace BookMan.ConsoleApp.Controllers
             book.Reading = read;
             Success($"The book '{book.Title}' are marked as {(read ? "READ" : "UNREAD")}");
         }
+        /// <summary>
+        /// Hiển thị các sách đã đọc
+        /// </summary>
         public void ShowMarks()
         {
             var model = Repository.SelectMarked();
             var view = new BookListView(model);
             Render(view);
         }
+
+        /// <summary>
+        /// In danh sách các book theo nhóm
+        /// </summary>
         public void Stats()
         {
             var model = Repository.Stats();

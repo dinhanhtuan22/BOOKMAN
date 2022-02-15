@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Framework
 {
+    /// <summary>
+    /// Class hỗ chợ các chức năng tương tác với console
+    /// </summary>
     public static class ViewHelp
     {
         /// <summary>
@@ -52,6 +55,16 @@ namespace Framework
             return @char;
         }
 
+        /// <summary>
+        /// In ra thông báo và tiếp nhận chuỗi ký tự người dùng nhập
+        /// sau đó chuyển sang kiểu bool.
+        /// Nếu người dùng không nhập thì trả về giá trị cũ
+        /// </summary>
+        /// <param name="label">dòng thông báo</param>
+        /// <param name="oldValue">giá trị gốc</param>
+        /// <param name="labelColor">màu chữ thông báo</param>
+        /// <param name="valueColor">màu chữ người dùng nhập</param>
+        /// <returns></returns>
         public static bool InputBool(string label, bool oldValue, ConsoleColor labelColor = ConsoleColor.Magenta, ConsoleColor valueColor = ConsoleColor.White)
         {
             Write($"{label} [y/n]: ", labelColor);
@@ -63,7 +76,6 @@ namespace Framework
                 return @char;
             }
             return oldValue;
-
         }
 
         /// <summary>
@@ -121,6 +133,16 @@ namespace Framework
             }
         }
 
+        /// <summary>
+        /// In ra thông báo và tiếp nhận chuỗi ký tự người dùng nhập
+        /// sau đó chuyển sang kiểu int.
+        /// Nếu người dùng không nhập thì trả về giá trị cũ
+        /// </summary>
+        /// <param name="label">dòng thông báo</param>
+        /// <param name="oldValue">giá trị gốc</param>
+        /// <param name="labelColor">màu chữ thông báo</param>
+        /// <param name="valueColor">màu chữ người dùng nhập</param>
+        /// <returns></returns>
         public static int InputInt(string label, int oldValue, ConsoleColor labelColor = ConsoleColor.Magenta, ConsoleColor valueColor = ConsoleColor.White)
         {
             while (true)

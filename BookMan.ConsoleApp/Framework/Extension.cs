@@ -11,22 +11,45 @@ namespace Framework
     /// </summary>
     public static class Extension
     {
+        /// <summary>
+        /// Chuyển dữ liệu từ chuỗi sang kiểu số nguyên
+        /// </summary>
+        /// <param name="value">giá trị cần chuyển</param>
+        /// <returns>Trả về 1 số nguyên</returns>
         public static int ToInt (this string value)
         {
             return int.Parse(value);
         }
 
+        /// <summary>
+        /// Chuyển dữ liệu từ chuỗi sang kiểu số nguyên
+        /// </summary>
+        /// <param name="value">chuỗi cần chuyển</param>
+        /// <param name="i">giá trị sau khi chuyển</param>
+        /// <returns>trả về true nếu chuyển kiểu thành công, ngược lại trả về false</returns>
         public static bool ToInt (this string value, out int i)
         {
             return int.TryParse(value, out i);
         }
 
+        /// <summary>
+        /// Biến đổi chuỗi Y,y,True, true, sang true
+        /// Các chuỗi khác thành false
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool ToBool (this string value)
         {
             var v = value.ToLower();
             if (v == "y" || v == "true") return true;
             return false;
         }
+        /// <summary>
+        /// Biến đổi true/false thành Yes/No hoặc có/không
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
         public static string ToString (this bool value, string format)
         {
             if (format == "y/n")

@@ -12,7 +12,9 @@ namespace BookMan.ConsoleApp.Controllers
     using Models;
     using System.IO;
     using System.Diagnostics;
-
+    /// <summary>
+    /// Class điều khiển thực hiện các chức năng liên quan đến file (mặc định pdf), thư mục
+    /// </summary>
     internal class ShellController : ControllerBase
     {
         protected Repository Repository;
@@ -24,7 +26,7 @@ namespace BookMan.ConsoleApp.Controllers
         /// Lấy thông tin file theo phần mở rộng trong folder
         /// </summary>
         /// <param name="folder"></param>
-        /// <param name="ext"></param>
+        /// <param name="ext">phần mở rộng, mặc định là pdf</param>
         public void Shell(string folder, string ext = "*.pdf")
         {
             if(!Directory.Exists(folder))
@@ -44,6 +46,10 @@ namespace BookMan.ConsoleApp.Controllers
             }
             Inform("No item found!", "SORRY!");
         }
+        /// <summary>
+        /// Mở file bằng chương trình mặc định của máy client
+        /// </summary>
+        /// <param name="id"></param>
         public void Read(int id)
         {
             var book = Repository.Select(id);
@@ -60,6 +66,10 @@ namespace BookMan.ConsoleApp.Controllers
             Process.Start(book.File);
             Success($"You are reading the book '{book.Title}'");
         }
+        /// <summary>
+        /// Xóa toàn bộ dữ liệu
+        /// </summary>
+        /// <param name="process">True/False</param>
         public void Clear(bool process = false)
         {
             if(!process)
@@ -70,6 +80,9 @@ namespace BookMan.ConsoleApp.Controllers
             Repository.Clear();
             Inform("The shell has been cleared!");
         }
+        /// <summary>
+        /// Lưu dữ liệu
+        /// </summary>
         public void Save()
         {
             Repository.SaveChanges();

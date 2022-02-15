@@ -8,11 +8,13 @@ namespace BookMan.ConsoleApp.Views
 {
     using Models;
     using Framework;
+    /// <summary>
+    /// class hiển thị danh sách các cuốn sách
+    /// </summary>
     internal class BookListView : ViewBase<Book[]>
     {
         public BookListView(Book[] model) : base(model)
         { }
-
 
         /// <summary>
         /// In danh sách ra console

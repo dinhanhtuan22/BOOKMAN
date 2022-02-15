@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Framework
 {
+    /// <summary>
+    /// Các kiểu thông báo
+    /// </summary>
     public enum MessageType { Success, Information, Error, Confirmation }
+    /// <summary>
+    /// Class Model message
+    /// </summary>
     public class Message
     {
         public MessageType Type { get; set; } = MessageType.Success;
@@ -15,12 +21,17 @@ namespace Framework
         public string BackRoute { get; set; }
 
     }
+    /// <summary>
+    /// class Message view
+    /// </summary>
     public class MessageView : ViewBase<Message>
     {
         public MessageView(Message model) : base(model)
         {
         }
-
+        /// <summary>
+        /// Render message ra view
+        /// </summary>
         public override void Render()
         {
             switch (Model.Type)

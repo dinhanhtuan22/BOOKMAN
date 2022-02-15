@@ -9,12 +9,16 @@ namespace BookMan.ConsoleApp.DataServices
 {
     using Models;
     using System.IO;
-
+    /// <summary>
+    /// Class dùng để lưu trữ dữ liệu trong file json
+    /// </summary>
     public class JsonDataAccess : IDataAccess
     {
         public List<Book> Books { get; set; } = new List<Book>();
         private readonly string _file = Config.Instance.DataFile;
-
+        /// <summary>
+        /// Load thông tin trong file
+        /// </summary>
         public void Load()
         {
             if (!File.Exists(_file))
@@ -28,9 +32,10 @@ namespace BookMan.ConsoleApp.DataServices
             {
                 Books = serializer.Deserialize<List<Book>>(jReader);
             }
-            //var jsonString = File.ReadAllText(_file);
-            //Books = JsonConvert.DeserializeObject<List<Book>>(jsonString);
         }
+        /// <summary>
+        /// Lưu thông tin vào file
+        /// </summary>
         public void SaveChanges()
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -39,8 +44,6 @@ namespace BookMan.ConsoleApp.DataServices
             {
                 serializer.Serialize(jWriter, Books);
             }
-            //var jsonString = JsonConvert.SerializeObject(Books);
-            //File.WriteAllText(_file, jsonString);
         }
     }
 }

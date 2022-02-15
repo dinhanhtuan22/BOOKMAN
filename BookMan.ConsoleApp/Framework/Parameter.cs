@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace Framework
 {
+    /// <summary>
+    /// Xây dựng phương thức đọc tham số từ router
+    /// 1. Lưu các cặp khóa-giá trị do người dùng nhập;
+    /// 2. Chuỗi tham số cần viết ở dạng khóa=giá trị;
+    /// 3. Nếu có nhiều tham số thì viết tách nhau bằng ký tự &
+    /// </summary>
     public class Parameter
     {
         private readonly Dictionary<string, string> _pairs = new Dictionary<string, string>();
@@ -16,7 +22,7 @@ namespace Framework
         /// </summary>
         /// <param name="key">khóa</param>
         /// <returns>giá trị tương ứng</returns>
-        public string this[string key] //để nạp chồng phương thức indexing phải viết hai phương thức get, set
+        public string this[string key]          // Để nạp chồng phép toán indexing phải viết hai phương thức get, set
         {
             get
             {
@@ -24,12 +30,11 @@ namespace Framework
                     return _pairs[key];
                 else
                     return null;
-            } //phương thức get trả lại giá trị từ dictionary
+            } 
             set
             {
                 _pairs[key] = value;
-            }//phương thức set gán giá trị cho dictionary
-            //set =>_pairs[key] = value; //expression body cho get,set chỉ áp dụng từ C# 7.0
+            }
         }
 
         /// <summary>
@@ -53,15 +58,15 @@ namespace Framework
             var pairs = parameter.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var pair in pairs)
             {
-                var p = pair.Split('=');//cắt mỗi phần tử lấy mốc là ký tự =
+                var p = pair.Split('=');
                 if (p.Length == 2) //một cặp khóa = giá_trị đúng sau khi cắt sẽ phải có 2 phần
                 {
-                    var key = p[0].Trim();//phần tử thứ nhất là khóa
-                    var value = p[1].Trim();//phần tử thứ hai là giá trị
+                    var key = p[0].Trim();
+                    var value = p[1].Trim();
                     this[key] = value;//lưu lại cặp khóa-giá_trị này sử dụng phép toán indexing
 
-                    //cũng có thể viết theo kiểu khác, trực tiếp sử dụng biến _pairs
-                    //_pairs[key] = value;
+                    // cũng có thể viết theo kiểu khác, trực tiếp sử dụng biến _pairs
+                    // _pairs[key] = value;
                 }
             }
         }        

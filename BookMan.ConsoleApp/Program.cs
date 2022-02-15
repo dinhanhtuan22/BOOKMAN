@@ -16,7 +16,6 @@ namespace BookMan.ConsoleApp
 
             while (true)
             {
-                //ViewHelp.Write("# Request >>>", ConsoleColor.Green);
                 ViewHelp.Write(text, color);
                 string request = Console.ReadLine();
                 try
@@ -62,7 +61,10 @@ namespace BookMan.ConsoleApp
             #endregion
         }
 
-
+        /// <summary>
+        /// Hiển thị gợi ý sử dụng router
+        /// </summary>
+        /// <param name="parameter"></param>
         private static void Help(Parameter parameter)
         {
             if (parameter == null)
@@ -77,6 +79,10 @@ namespace BookMan.ConsoleApp
             ViewHelp.WriteLine(Router.Instance.GetHelp(command));
         }
 
+        /// <summary>
+        /// Hiển thị thông tin phần mềm
+        /// </summary>
+        /// <param name="parameter"></param>
         private static void About(Parameter parameter)
         {
             ViewHelp.WriteLine("BOOK MANAGER version 1.0", ConsoleColor.Green);

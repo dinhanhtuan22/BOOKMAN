@@ -5,9 +5,15 @@ namespace BookMan.ConsoleApp.Views
 {
     using Models;
     using Framework;
+    /// <summary>
+    /// class để cật nhật thông tin cuốn sách
+    /// </summary>
     internal class BookUpdateView : ViewBase<Book>
     {
         public BookUpdateView(Book model) : base(model) { }
+        /// <summary>
+        /// Hiển thị thông tin cần cập nhật
+        /// </summary>
         public override void Render()
         {
             ViewHelp.WriteLine("UPDATE BOOK INFORMATION", ConsoleColor.Green);

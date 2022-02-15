@@ -10,16 +10,15 @@ namespace Framework
 {
     public abstract class ViewBase
     {
-        protected Router Router = Router.Instance; //Do Instance là singleton nên khai báo để thuận tiện khi sử dụng
-
+        protected Router Router = Router.Instance; 
         public ViewBase()
         { }
-
+        /// <summary>
+        /// Render dữ liệu
+        /// </summary>
         public abstract void Render();
-
-
-
     }
+
     public abstract class ViewBase<T> : ViewBase
     {
         protected T Model;
@@ -27,7 +26,10 @@ namespace Framework
         {
             Model = model;
         }
-
+        /// <summary>
+        /// Render dữ liệu ra file
+        /// </summary>
+        /// <param name="path"></param>
         public virtual void RenderToFile(string path)
         {
             ViewHelp.WriteLine($"Saving data to file '{path}'");

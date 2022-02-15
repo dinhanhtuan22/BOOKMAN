@@ -68,6 +68,11 @@ namespace Framework //Lưu ý không gian tên
             }
         }
 
+        /// <summary>
+        /// Chuyển hướng truy vấn 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <exception cref="Exception"></exception>
         public void Forward(string request)
         {
             var req = new Request(request);

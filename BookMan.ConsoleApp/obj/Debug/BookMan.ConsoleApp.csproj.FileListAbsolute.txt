@@ -6,3 +6,14 @@ C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp
 C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.pdb
 C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\LENOVO\Documents\Visual Studio 2015\Projects\BOOKMAN\BookMan.ConsoleApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\bin\Debug\BookMan.ConsoleApp.exe.config
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\bin\Debug\BookMan.ConsoleApp.exe
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\bin\Debug\BookMan.ConsoleApp.pdb
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.csproj.CopyComplete
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.exe
+C:\Users\dinha\Downloads\BOOKMAN\BookMan.ConsoleApp\obj\Debug\BookMan.ConsoleApp.pdb

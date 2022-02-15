@@ -7,15 +7,27 @@ using System.Threading.Tasks;
 namespace BookMan.ConsoleApp
 {
     using DataServices;
+    /// <summary>
+    /// Class xây dựng cấu hình cho client
+    /// 1. Thay đổi màu sắc và văn bản của dấu nhắc lệnh
+    /// 2. Thay đổi cơ chế và nơi lưu trữ dữ liệu
+    /// </summary>
     internal class Config
     {
         private static Config _instance;
+
+        /// <summary>
+        /// Thuộc tính tĩnh tạo đối tượng Config để sử dụng
+        /// </summary>
         public static Config Instance = _instance ?? (_instance = new Config());
         private Config() { }
         private Properties.Settings _s = Properties.Settings.Default;
 
         public void Reload() => _s.Reload();
         
+        /// <summary>
+        /// Cấu hình cơ chế lưu trữ dữ liệu (binary, json, xml)
+        /// </summary>
         public IDataAccess IDataAccess
         {
             get
@@ -39,6 +51,9 @@ namespace BookMan.ConsoleApp
                 _s.Save();
             }
         } 
+        /// <summary>
+        /// Cấu hình chữ mặc định của command
+        /// </summary>
         public string PromptText
         {
             get { return _s.PromptText; }
@@ -48,6 +63,9 @@ namespace BookMan.ConsoleApp
                 _s.Save();
             }
         }
+        /// <summary>
+        /// Cấu hình màu chữ của command
+        /// </summary>
         public ConsoleColor PromptColor
         {
             get
@@ -58,6 +76,10 @@ namespace BookMan.ConsoleApp
                 _s.Save();
             }
         }
+
+        /// <summary>
+        /// Cấu hình nơi lưu trữ dữ liệu
+        /// </summary>
         public string DataFile
         {
             get { return _s.DataFile; }

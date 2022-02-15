@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "75c774e9-45fa-4c42-82a0-e2ec56fe1303": {
+      "ProjectGuid": "75c774e9-45fa-4c42-82a0-e2ec56fe1303",
+      "DisplayName": "BookMan.ConsoleApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
