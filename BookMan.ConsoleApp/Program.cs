@@ -71,7 +71,7 @@ namespace BookMan.ConsoleApp
             {
                 ViewHelp.WriteLine("SUPPORTER COMMANDS:", ConsoleColor.Green);
                 ViewHelp.WriteLine(Router.Instance.GetRoutes(), ConsoleColor.Yellow);
-                ViewHelp.WriteLine("type: help ? cmd <command> to get command details", ConsoleColor.Cyan);
+                ViewHelp.WriteLine("type: help ? cmd = <command> to get command details", ConsoleColor.Cyan);
                 return;
             }
             Console.BackgroundColor = ConsoleColor.DarkBlue;
